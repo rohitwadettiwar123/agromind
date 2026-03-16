@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AgroMind — AI Smart Farming Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="bg-canvas"></div>
+<div class="bg-grain"></div>
+
+<div class="app-wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-icon">🌾</div>
+    <div class="header-info">
+      <div class="header-title">Agro<span>Mind</span></div>
+      <div class="header-subtitle">AI Smart Farming Assistant</div>
+    </div>
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      <span>Online</span>
+    </div>
+  </header>
+
+  <!-- TOPIC CHIPS -->
+  <div class="topics-bar">
+    <button class="topic-chip" onclick="sendQuick('What crops should I grow in Kharif season?')">🌾 Kharif Crops</button>
+    <button class="topic-chip" onclick="sendQuick('Best crops for black soil type?')">🟫 Soil & Crops</button>
+    <button class="topic-chip" onclick="sendQuick('Calculate fertilizer dosage for wheat on 2 hectares')">🧪 Fertilizer Calc</button>
+    <button class="topic-chip" onclick="sendQuick('My wheat leaves have yellow spots. What disease is this?')">🍂 Disease Help</button>
+    <button class="topic-chip" onclick="sendQuick('How often should I irrigate paddy crop?')">💧 Irrigation</button>
+    <button class="topic-chip" onclick="sendQuick('What are sustainable farming practices I should follow?')">♻️ Eco Farming</button>
+    <button class="topic-chip" onclick="sendQuick('Weather advice for Rabi season farming')">🌦️ Weather Tips</button>
+  </div>
+
+  <!-- CHAT AREA -->
+  <div class="chat-area" id="chatArea">
+
+    <!-- Welcome state -->
+    <div class="welcome-state" id="welcomeState">
+      <div class="welcome-icon">🌱</div>
+      <div class="welcome-heading">
+        Hello, Farmer!
+        <span>How can I help your farm today?</span>
+      </div>
+
+      <div class="welcome-sub">
+        Ask me anything about crops, fertilizers, soil health, diseases, irrigation, or sustainable farming practices.
+      </div>
+
+      <div class="welcome-cards">
+
+        <div class="welcome-card" onclick="sendQuick('What crops should I grow in Kharif season?')">
+          <div class="wc-icon">🌾</div>
+          <div class="wc-text">
+            <div class="wc-title">Crop Planning</div>
+            <div class="wc-desc">Season & soil-based recommendations</div>
+          </div>
+        </div>
+
+        <div class="welcome-card" onclick="sendQuick('How much fertilizer should I use for paddy on 1 hectare?')">
+          <div class="wc-icon">🧪</div>
+          <div class="wc-text">
+            <div class="wc-title">Fertilizer Calc</div>
+            <div class="wc-desc">NPK dosage per hectare</div>
+          </div>
+        </div>
+
+        <div class="welcome-card" onclick="sendQuick('My tomato plants are wilting. What could be the cause?')">
+          <div class="wc-icon">🔬</div>
+          <div class="wc-text">
+            <div class="wc-title">Disease ID</div>
+            <div class="wc-desc">Symptoms to diagnosis & cure</div>
+          </div>
+        </div>
+
+        <div class="welcome-card" onclick="sendQuick('Give me tips for water-saving irrigation methods')">
+          <div class="wc-icon">💧</div>
+          <div class="wc-text">
+            <div class="wc-title">Water & Irrigation</div>
+            <div class="wc-desc">Smart irrigation scheduling</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INPUT AREA -->
+  <div class="input-area">
+    <div class="input-row">
+
+      <textarea
+        id="userInput"
+        rows="1"
+        placeholder="Ask about crops, fertilizers, diseases, irrigation..."
+        onkeydown="handleKey(event)"
+        oninput="autoResize(this)"
+      ></textarea>
+
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send message">
+        ➤
+      </button>
+
+    </div>
+
+    <div class="input-footer">
+      Powered by Groq LLaMA3 · AgroMind v1.0
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
